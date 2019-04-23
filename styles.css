@@ -18,6 +18,12 @@ button:hover {
     cursor: pointer;
 }
 
+body,
+main,
+.column {
+    transition: none;
+}
+
 main {
     padding: 30px;
     font-family: "Roboto", sans-serif;
@@ -32,13 +38,18 @@ main {
     align-items: flex-start;
 }
 
+main::-webkit-scrollbar { 
+    display: none; 
+}
+
 .column {
     width: 350px;
-    min-width: 300px;
+    min-width: 350px;
     background-color: #d9d9d9;
     border-radius: 8px;
     max-height: 100%;
     display: flex;
+    overflow: hidden;
     flex-direction: column;
 }
 
@@ -52,8 +63,6 @@ main {
 
 .title {
     align-self: flex-start;
-    left: 0;
-    top: 0;
     width: 100%;
     box-sizing: border-box;
     font-weight: 600;
@@ -77,11 +86,25 @@ main {
     margin-bottom: 10px;
 }
 
-#add-card {
+.add-card {
     color: #8c8c8c;
     align-self: flex-end;
-    left: 0;
-    bottom: 0;
     width: 100%;
     box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-size: 17px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.add-card:hover {
+    color: #737373;
+}
+
+.plus-icon {
+    font-size: 30px;
+    margin-right: 10px;
+    font-weight: 300;
+    line-height: 20px;
 }
