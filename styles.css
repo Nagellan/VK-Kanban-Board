@@ -91,10 +91,7 @@ main::-webkit-scrollbar {
     margin-bottom: 10px;
 }
 
-.add-card {
-    width: 100%;
-    box-sizing: border-box;
-    
+.add-btn {    
     font-family: "Roboto", sans-serif;
     font-size: 17px;
     text-align: left;
@@ -105,14 +102,24 @@ main::-webkit-scrollbar {
     align-items: center;
 }
 
-.add-card:hover {
+.add-btn:hover {
     color: #737373;
+}
+
+.add-card {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.add-column {
+    flex-direction: row;
+    align-self: flex-start;
 }
 
 .plus-icon {
     font-size: 30px;
     font-weight: 300;
     line-height: 20px;
-    
+
     margin-right: 10px;
 }
