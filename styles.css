@@ -1,0 +1,87 @@
+* {
+    transition: all 0.2s ease;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+input,
+button {
+    border: 0;
+    outline: 0;
+    padding: 0;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+main {
+    padding: 30px;
+    font-family: "Roboto", sans-serif;
+    font-size: 17px;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: auto;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.column {
+    width: 350px;
+    min-width: 300px;
+    background-color: #d9d9d9;
+    border-radius: 8px;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.column:not(:last-child) {
+    margin-right: 20px;
+}
+
+.col-container {
+    padding: 15px;
+}
+
+.title {
+    align-self: flex-start;
+    left: 0;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    font-weight: 600;
+}
+
+.cards-wrapper {
+    overflow-y: auto;
+    align-self: stretch;
+}
+
+.cards-wrapper::-webkit-scrollbar { 
+    display: none; 
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+}
+
+.card:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+#add-card {
+    color: #8c8c8c;
+    align-self: flex-end;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
