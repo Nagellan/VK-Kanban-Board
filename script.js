@@ -24,6 +24,14 @@ function saveCard(btn) {
     }
 }
 
+function cancelCard(btn) {
+    var newCard = getGrandParent(btn).getElementsByClassName('new')[0],
+        addCardBtn = getElementFromTemplate(document.getElementById("add-card"));
+        
+    newCard.remove();
+    replaceBlock(btn.parentElement, addCardBtn);
+}
+
 function replaceBlock(block1, block2) {
     block1.parentNode.replaceChild(block2, block1);
 }
