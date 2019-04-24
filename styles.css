@@ -74,10 +74,17 @@ main::-webkit-scrollbar {
 .title {
     width: 100%;
     box-sizing: border-box;
-
-    font-weight: 600;
     
     align-self: flex-start;
+}
+
+.title input {
+    width: 100%;
+    font-weight: 600;
+}
+
+.title input::placeholder {
+    font-weight: 400;
 }
 
 .cards-wrapper {

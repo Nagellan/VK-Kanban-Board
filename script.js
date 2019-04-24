@@ -9,7 +9,7 @@ function addCard(btn) {
 }
 
 function saveCard(btn) {
-    var card = getGrandParent(btn).getElementsByClassName('new')[0],
+    var card = getGrandParent(btn).getElementsByClassName('card new')[0],
         cardInput = card.firstElementChild,
         addCardBtn = getElementFromTemplate(document.getElementById("add-card"));
 
@@ -18,7 +18,7 @@ function saveCard(btn) {
         card.classList.remove('new');
         replaceBlock(btn.parentElement, addCardBtn);
     }
-    else {
+    else {        
         cardInput.value = "";
         cardInput.focus();
     }
@@ -27,9 +27,40 @@ function saveCard(btn) {
 function cancelCard(btn) {
     var newCard = getGrandParent(btn).getElementsByClassName('new')[0],
         addCardBtn = getElementFromTemplate(document.getElementById("add-card"));
-        
+
     newCard.remove();
     replaceBlock(btn.parentElement, addCardBtn);
+}
+
+function addColumn(btn) {
+    if (document.getElementsByClassName('column new').length == 0) {
+        var emptyColumn = getElementFromTemplate(document.getElementById('empty-column'));
+
+        document.getElementsByTagName('main')[0].insertBefore(emptyColumn, btn);
+        emptyColumn.getElementsByClassName('title')[0].firstElementChild.focus();
+    }
+}
+
+function saveColumn(btn) {
+    var column = document.getElementsByClassName('column new')[0],
+        colInput = column.getElementsByClassName('title')[0].firstElementChild,
+        addCardBtn = getElementFromTemplate(document.getElementById("add-card"));
+
+    if (colInput.value.replace(/\s/g, '') != "") {
+        colInput.readOnly = true;
+        column.classList.remove('new');
+        replaceBlock(btn.parentElement, addCardBtn);
+    }
+    else {
+        colInput.value = "";
+        colInput.focus();
+    }
+}
+
+function cancelColumn(btn) {
+    var newColumn = document.getElementsByClassName('column new')[0];
+
+    newColumn.remove();
 }
 
 function replaceBlock(block1, block2) {
