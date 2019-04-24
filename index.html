@@ -32,11 +32,11 @@
         </template>
         
         <template id="empty-card">
-            <div class="card col-container new"><input type="text" placeholder="Write the name of a card"></div>
+            <div class="card col-container new" ondragstart="drag(event);"><input type="text" placeholder="Write the name of a card"></div>
         </template>
 
         <template id="empty-column">
-            <form class="column new" action="" onsubmit="return false">
+            <form class="column new" action="" onsubmit="return false" ondragover="dragOver(event)" ondrop="drop(event, this);">
                 <div class="title col-container"><input type="text" placeholder="Write the name of a column"></div>
                 <div class="cards-wrapper"></div>
                 <div class="save-cancel-card add-btn col-container">

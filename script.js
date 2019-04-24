@@ -2,6 +2,7 @@ function addCard(btn) {
     var cardsWrapper = btn.parentElement.getElementsByClassName('cards-wrapper')[0],
         emptyCard = getElementFromTemplate(document.getElementById('empty-card'));
     
+    emptyCard.id = "card-" + document.getElementsByClassName('card').length;
     cardsWrapper.appendChild(emptyCard)
 
     replaceBlock(btn, getElementFromTemplate(document.getElementById("save-cancel-card")));
@@ -16,6 +17,7 @@ function saveCard(btn) {
     if (cardInput.value.replace(/\s/g, '') != "") {
         cardInput.readOnly = true;
         card.classList.remove('new');
+        card.setAttribute('draggable', true);
         replaceBlock(btn.parentElement, addCardBtn);
     }
     else {        
@@ -78,4 +80,19 @@ function getGrandParent(el) {
  */
 function getElementFromTemplate(template) {
     return template.content.children.item(0).cloneNode(true);
+}
+
+function drag(e) {
+    e.dataTransfer.effectAllowed = "move";
+    e.dataTransfer.setData('card-id', e.target.id);
+}
+
+function dragOver(e) {
+    e.preventDefault();
+}
+
+function drop(e, block) {
+    e.preventDefault();
+    var cardId = e.dataTransfer.getData('card-id');
+    block.getElementsByClassName('cards-wrapper')[0].appendChild(document.getElementById(cardId))
 }
