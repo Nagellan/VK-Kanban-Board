@@ -36,16 +36,14 @@
         </template>
 
         <template id="empty-column">
-            <div class="column new">
-                <form action="" onsubmit="return false">
-                    <div class="title col-container"><input type="text" placeholder="Write the name of a column"></div>
-                    <div class="cards-wrapper"></div>
-                    <div class="save-cancel-card add-btn col-container">
-                        <button class="save-card-btn" onclick="saveColumn(this);">Save the column</button>
-                        <button class="cancel-card-btn" onclick="cancelColumn(this);"><div>+</div></button>
-                    </div>
-                </form>
-            </div>
+            <form class="column new" action="" onsubmit="return false">
+                <div class="title col-container"><input type="text" placeholder="Write the name of a column"></div>
+                <div class="cards-wrapper"></div>
+                <div class="save-cancel-card add-btn col-container">
+                    <button class="save-card-btn" onclick="saveColumn(this);">Save the column</button>
+                    <button class="cancel-card-btn" onclick="cancelColumn(this);"><div>+</div></button>
+                </div>
+            </form>
         </template>
     </body>
 </html>
