@@ -19,28 +19,26 @@
         <main>
             <div class="column">
                 <div class="title col-container">Title 1</div>
-
-                <div class="cards-wrapper col-container">
-                    <div class="card col-container">Task 1</div>
-                    <div class="card col-container">Task 2</div>
-                    <div class="card col-container">Task 1</div>
-                    <div class="card col-container">Task 2</div>
-                    <div class="card col-container">Task 1</div>
-                    <div class="card col-container">Task 2</div>
-                    <div class="card col-container">Task 1</div>
-                    <div class="card col-container">Task 2</div>
-                    <div class="card col-container">Task 1</div>
-                    <div class="card col-container">Task 2</div>
-                    <div class="card col-container">Task 1</div>
-                    <div class="card col-container">Task 2</div>
-                    <div class="card col-container">Task 1</div>
-                    <div class="card col-container">Task 2</div>
-                </div>
-
-                <button class="add-card add-btn col-container"><span class="plus-icon">+</span> Add a new card</button>
+                <div class="cards-wrapper"></div>
+                <button class="add-card add-btn col-container" onclick="addCard(this);"><span class="plus-icon">+</span> Add a new card</button>
             </div>
 
             <button class="add-column add-btn column col-container"><span class="plus-icon">+</span> Add new column</button>
         </main>
+
+        <template id="add-card">
+            <button class="add-card add-btn col-container" onclick="addCard(this);"><span class="plus-icon">+</span> Add a new card</button>
+        </template>
+
+        <template id="save-cancel-card">
+            <div class="save-cancel-card add-btn col-container">
+                <button class="save-card-btn">Save the card</button>
+                <button class="cancel-card-btn"><div>+</div></button>
+            </div>
+        </template>
+        
+        <template id="empty-card">
+            <div class="card col-container"><input type="text" placeholder="Write the name of a card" autofocus></div>
+        </template>
     </body>
 </html>
