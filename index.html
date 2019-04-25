@@ -17,29 +17,29 @@
 
     <body>
         <main>
-            <button class="add-column add-btn column col-container" onclick="addColumn(this);"><span class="plus-icon">+</span> Add new column</button>
+            <button class="add-column add-btn column container" onclick="addColumn(this);"><span class="plus-icon">+</span> Add new column</button>
         </main>
 
         <template id="add-card">
-            <button type="submit" class="add-card add-btn col-container" onclick="addCard(this);"><span class="plus-icon">+</span> Add a new card</button>
+            <button type="submit" class="add-card add-btn container" onclick="addCard(this);"><span class="plus-icon">+</span> Add a new card</button>
         </template>
 
         <template id="save-cancel-card">
-            <div class="save-cancel-card add-btn col-container">
+            <div class="save-cancel-card add-btn container">
                 <button class="save-card-btn" onclick="saveCard(this);">Save the card</button>
                 <button class="cancel-card-btn" onclick="cancelCard(this);"><div>+</div></button>
             </div>
         </template>
         
         <template id="empty-card">
-            <div class="card col-container new" ondragstart="drag(event);"><input type="text" placeholder="Write the name of a card"></div>
+            <div class="card container new" onkeydown="cancelCard(this, event);" ondragstart="drag(event);"><input type="text" placeholder="Write the name of a card"></div>
         </template>
 
         <template id="empty-column">
             <form class="column new" action="" onsubmit="return false" ondragover="dragOver(event)" ondrop="drop(event, this);">
-                <div class="title col-container"><input type="text" placeholder="Write the name of a column"></div>
+                <input class="col-title container" type="text" placeholder="Write the name of a column" onkeydown="cancelColumn(this, event);">
                 <div class="cards-wrapper"></div>
-                <div class="save-cancel-card add-btn col-container">
+                <div class="save-cancel-card add-btn container">
                     <button class="save-card-btn" onclick="saveColumn(this);">Save the column</button>
                     <button class="cancel-card-btn" onclick="cancelColumn(this);"><div>+</div></button>
                 </div>

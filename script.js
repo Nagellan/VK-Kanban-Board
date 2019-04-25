@@ -19,6 +19,7 @@ function saveCard(btn) {
         card.classList.remove('new');
         card.setAttribute('draggable', true);
         replaceBlock(btn.parentElement, addCardBtn);
+        addCardBtn.focus();
     }
     else {        
         cardInput.value = "";
@@ -26,12 +27,18 @@ function saveCard(btn) {
     }
 }
 
-function cancelCard(btn) {
-    var newCard = getGrandParent(btn).getElementsByClassName('new')[0],
-        addCardBtn = getElementFromTemplate(document.getElementById("add-card"));
+function cancelCard(btn, e=null) {
+    if (e.key == 'Escape')
+        btn = getGrandParent(btn).parentElement.getElementsByClassName('cancel-card-btn')[0];
 
-    newCard.remove();
-    replaceBlock(btn.parentElement, addCardBtn);
+    if (e == null || e.key == 'Escape') {
+        var newCard = getGrandParent(btn).getElementsByClassName('new')[0],
+            addCardBtn = getElementFromTemplate(document.getElementById("add-card"));
+
+        newCard.remove();
+        replaceBlock(btn.parentElement, addCardBtn);
+        addCardBtn.focus();
+    }
 }
 
 function addColumn(btn) {
@@ -39,30 +46,36 @@ function addColumn(btn) {
         var emptyColumn = getElementFromTemplate(document.getElementById('empty-column'));
 
         document.getElementsByTagName('main')[0].insertBefore(emptyColumn, btn);
-        emptyColumn.getElementsByClassName('title')[0].firstElementChild.focus();
+        emptyColumn.getElementsByClassName('col-title')[0].focus();
     }
 }
 
 function saveColumn(btn) {
     var column = document.getElementsByClassName('column new')[0],
-        colInput = column.getElementsByClassName('title')[0].firstElementChild,
+        colTitle = column.getElementsByClassName('col-title')[0],
         addCardBtn = getElementFromTemplate(document.getElementById("add-card"));
 
-    if (colInput.value.replace(/\s/g, '') != "") {
-        colInput.readOnly = true;
+    if (colTitle.value.replace(/\s/g, '') != "") {
+        colTitle.readOnly = true;
         column.classList.remove('new');
         replaceBlock(btn.parentElement, addCardBtn);
+        addCardBtn.focus();
     }
     else {
-        colInput.value = "";
-        colInput.focus();
+        colTitle.value = "";
+        colTitle.focus();
     }
 }
 
-function cancelColumn(btn) {
-    var newColumn = document.getElementsByClassName('column new')[0];
+function cancelColumn(btn, e) {
+    if (e.key == 'Escape')
+        btn = btn.parentElement.getElementsByClassName('cancel-card-btn')[0];
 
-    newColumn.remove();
+    if (e == null || e.key == 'Escape') {
+        var newColumn = document.getElementsByClassName('column new')[0];
+        newColumn.remove();
+        document.getElementsByClassName('add-column')[0].focus();
+    }
 }
 
 function replaceBlock(block1, block2) {
