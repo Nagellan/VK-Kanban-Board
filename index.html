@@ -24,10 +24,10 @@
             <button type="submit" class="add-card add-btn container" onclick="addCard(this);"><span class="plus-icon">+</span> Add a new card</button>
         </template>
 
-        <template id="save-cancel-card">
-            <div class="save-cancel-card add-btn container">
-                <button class="save-card-btn" onclick="saveCard(this);">Save the card</button>
-                <button class="cancel-card-btn" onclick="cancelCard(this);"><div>+</div></button>
+        <template id="save-cancel-panel">
+            <div class="save-cancel-panel add-btn container">
+                <button class="save-btn" onclick="saveCard(this);">Save the card</button>
+                <button class="cancel-btn" onclick="cancelCard(this);"><div class="cancel-icon">+</div></button>
             </div>
         </template>
         
@@ -39,9 +39,9 @@
             <form class="column new" action="" onsubmit="return false" ondragover="dragOver(event)" ondrop="drop(event, this);">
                 <input class="col-title container" type="text" placeholder="Write the name of a column" onkeydown="cancelColumn(this, event);">
                 <div class="cards-wrapper"></div>
-                <div class="save-cancel-card add-btn container">
-                    <button class="save-card-btn" onclick="saveColumn(this);">Save the column</button>
-                    <button class="cancel-card-btn" onclick="cancelColumn(this);"><div>+</div></button>
+                <div class="save-cancel-panel add-btn container">
+                    <button class="save-btn" onclick="saveColumn(this);">Save the column</button>
+                    <button class="cancel-btn" onclick="cancelColumn(this);"><div class="cancel-icon">+</div></button>
                 </div>
             </form>
         </template>

@@ -5,7 +5,7 @@ function addCard(btn) {
     emptyCard.id = "card-" + document.getElementsByClassName('card').length;
     cardsWrapper.appendChild(emptyCard)
 
-    replaceBlock(btn, getElementFromTemplate(document.getElementById("save-cancel-card")));
+    replaceBlock(btn, getElementFromTemplate(document.getElementById("save-cancel-panel")));
     emptyCard.firstElementChild.focus();
 }
 
@@ -29,7 +29,7 @@ function saveCard(btn) {
 
 function cancelCard(btn, e=null) {
     if (e.key == 'Escape')
-        btn = getGrandParent(btn).parentElement.getElementsByClassName('cancel-card-btn')[0];
+        btn = getGrandParent(btn).parentElement.getElementsByClassName('cancel-btn')[0];
 
     if (e == null || e.key == 'Escape') {
         var newCard = getGrandParent(btn).getElementsByClassName('new')[0],
@@ -69,7 +69,7 @@ function saveColumn(btn) {
 
 function cancelColumn(btn, e) {
     if (e.key == 'Escape')
-        btn = btn.parentElement.getElementsByClassName('cancel-card-btn')[0];
+        btn = btn.parentElement.getElementsByClassName('cancel-btn')[0];
 
     if (e == null || e.key == 'Escape') {
         var newColumn = document.getElementsByClassName('column new')[0];
