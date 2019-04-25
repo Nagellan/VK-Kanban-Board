@@ -28,10 +28,10 @@ function saveCard(btn) {
 }
 
 function cancelCard(btn, e=null) {
-    if (e.key == 'Escape')
+    if (e != null && e.key == 'Escape')
         btn = getGrandParent(btn).parentElement.getElementsByClassName('cancel-btn')[0];
 
-    if (e == null || e.key == 'Escape') {
+    if (e == null || (e != null && e.key == 'Escape')) {
         var newCard = getGrandParent(btn).getElementsByClassName('new')[0],
             addCardBtn = getElementFromTemplate(document.getElementById("add-card"));
 
@@ -68,10 +68,10 @@ function saveColumn(btn) {
 }
 
 function cancelColumn(btn, e) {
-    if (e.key == 'Escape')
+    if (e != null && e.key == 'Escape')
         btn = btn.parentElement.getElementsByClassName('cancel-btn')[0];
 
-    if (e == null || e.key == 'Escape') {
+    if (e == null || (e != null && e.key == 'Escape')) {
         var newColumn = document.getElementsByClassName('column new')[0];
         newColumn.remove();
         document.getElementsByClassName('add-column')[0].focus();
